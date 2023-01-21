@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _67._Add_Binary
+﻿namespace _67._Add_Binary
 {
     public static class Solution
     {
