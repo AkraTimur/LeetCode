@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Numerics;
 
 namespace _989._Add_to_Array_Form_of_Integer
 {
@@ -11,9 +7,16 @@ namespace _989._Add_to_Array_Form_of_Integer
         public static IList<int> AddToArrayForm(int[] num, int k)
         {
             string str = string.Join("", num);
-            var list = new List<int>();
-            list.Add(int.Parse(str) + k);
+            IList<int>list = new List<int>();
 
+            var num1 = BigInteger.Parse(str);
+            var sum = num1 + k;
+            var res = Convert.ToString(sum);
+
+            foreach (var item in res)
+            {
+                list.Add(int.Parse(item.ToString()));
+            }
             return list;
         }
     }
