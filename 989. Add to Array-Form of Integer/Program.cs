@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine(Solution.AddToArrayForm(new int[] { 1, 2, 0, 0 }, 34));
         }
     }
 }
