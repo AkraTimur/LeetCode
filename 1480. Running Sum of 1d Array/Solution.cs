@@ -24,3 +24,4 @@ namespace _1480._Running_Sum_of_1d_Array
         }
     }
 }
+//return nums.Select(n => sum += n).ToArray();
