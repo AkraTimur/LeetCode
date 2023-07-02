@@ -20,10 +20,6 @@
     {
         public static string MergeAlternately(string word1, string word2)
         {
-            //for (int j = 0; j < word1.Length + word1.Length; j++)
-            //{
-            //    word1
-            //}
             var list = new List<string>();
 
             var arr1 = word1.ToCharArray();
