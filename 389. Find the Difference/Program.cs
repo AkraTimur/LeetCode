@@ -4,8 +4,8 @@
     {
         static void Main(string[] args)
         {
-            string s = "ae", t = "aea";
-            //string s = "abcd", t = "abcde";
+            //string s = "ae", t = "aea";
+            string s = "abcd", t = "abcde";
 
             Console.WriteLine(Solution.FindTheDifference(s, t));
         }
@@ -17,38 +17,27 @@
         {
             if (s.Length == 0) return t[0];
 
+            var arrS = s.ToCharArray();
+            var arrT = t.ToCharArray();
 
-            var arr = s.ToCharArray().ToList();
+            Array.Sort(arrS);
+            Array.Sort(arrT);
 
-            var arrT = t.ToCharArray().ToList();
+            var listRes = new List<char>();
 
-            var combineAll = (s + t).ToCharArray().ToList();
-
-            var findCount = combineAll.GroupBy(x => x).Where(g => g.Count() > 2).FirstOrDefault();
-
-            if(findCount == null)
+            for (int i = 0; i < arrT.Length; i++)
             {
-                var res = arrT.Except(arr).FirstOrDefault();
-                return res;
+                if (i > arrS.Length - 1)
+                {
+                    listRes.Add(arrT[i]);
+                    break;
+                }
+
+                if (arrS[i] != arrT[i])
+                    listRes.Add(arrT[i]);
             }
 
-            return findCount.FirstOrDefault();
-            //var arrS = s.ToCharArray().ToList();
-            //var arrT = t.ToCharArray().ToList();
-
-            //var res = arrT.GroupBy(x => x).FirstOrDefault(g => g.Count() >= 2);
-
-            //if(res == null)
-            //{
-            //    for(int i = 0; i < arrS.Count; i++) 
-            //    {
-            //        arrT.Remove(arrS[i]);
-            //    }
-
-            //    return arrT.First();
-            //}
-
-            //return res.FirstOrDefault();
+            return listRes.FirstOrDefault();
         }
     }
 }
