@@ -20,11 +20,35 @@ namespace _21._Merge_Two_Sorted_Lists
     {
         public static ListNode MergeTwoLists(ListNode list1, ListNode list2)
         {
-            //todo
+            ListNode dummy = new ListNode(); // Фиктивный узел для начала нового списка
+            ListNode current = dummy; // Текущий узел, который будет продвигаться по новому списку
 
-            var result = list1.
+            while (list1 != null && list2 != null)
+            {
+                if (list1.val < list2.val)
+                {
+                    current.next = list1;
+                    list1 = list1.next;
+                }
+                else
+                {
+                    current.next = list2;
+                    list2 = list2.next;
+                }
+                current = current.next;
+            }
 
-            return new ListNode();
+            // Если один из списков закончился, добавляем оставшиеся элементы из другого списка
+            if (list1 != null)
+            {
+                current.next = list1;
+            }
+            else
+            {
+                current.next = list2;
+            }
+
+            return dummy.next; // Возвращаем новый список, начиная с первого реального узла
         }
     }
 }
