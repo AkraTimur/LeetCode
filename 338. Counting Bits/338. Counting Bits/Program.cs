@@ -17,7 +17,6 @@ class Program
             {
                 arr[i] = arr[i >> 1] + i % 2;
             }
-
             return arr;
         }
     }
